@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Answer from "../common/answer";
 import Code from "../common/code";
-import { AnswerStyle, CommonInputStyle } from "../common/style";
+import CommonForm from "../common/commonForm";
+import { AnswerStyle } from "../common/style";
 
 function SeventhPage() {
     const [answer, setAnswer] = useState(0);
@@ -34,11 +35,11 @@ function SeventhPage() {
 
     return (
         <AnswerStyle>
-            <form
+            <CommonForm
+                type="oneNumber"
                 onSubmit={onIntegerSubmit}
-                style={{ margin: "0 auto", width: "40%" }}>
-                <CommonInputStyle type={"number"} />
-            </form>
+                formWidth={40}
+            />
             <Answer>Answer : {answer}</Answer>
             <Code>
                 <pre>

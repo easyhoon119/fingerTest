@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Answer from "../common/answer";
 import Code from "../common/code";
-import { AnswerStyle, CommonInputStyle } from "../common/style";
+import CommonForm from "../common/commonForm";
+import { AnswerStyle } from "../common/style";
 
 function SecondPage() {
     const [value, setValue] = useState("");
@@ -35,20 +36,19 @@ function SecondPage() {
 
     return (
         <AnswerStyle>
-            <form
+            <CommonForm
+                type="text"
                 onSubmit={onSubmitTestCase}
-                style={{ margin: "0 auto", width: "40%" }}>
-                <CommonInputStyle
-                    type={"text"}
-                    onChange={onEmailNumberCheck}
-                    value={value}
-                />
-            </form>
+                onChange={onEmailNumberCheck}
+                value={value}
+                formWidth={40}
+            />
 
             <Answer>Answer : {answer}</Answer>
             <Code>
                 <pre>
-                    {`value.split("").sort((a, b) => {
+                    {`
+                    value.split("").sort((a, b) => {
                     if (num.test(a)) { 
                         a = String.fromCharCode(a.charCodeAt(0) + 1000); 
                     } 
@@ -56,7 +56,8 @@ function SecondPage() {
                         b = String.fromCharCode(b.charCodeAt(0) + 1000); 
                     } 
                     return a.toUpperCase() < b.toUpperCase() ? -1 : 1;
-                })`}
+                    })
+                `}
                 </pre>
             </Code>
         </AnswerStyle>

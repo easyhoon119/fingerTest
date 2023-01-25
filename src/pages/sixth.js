@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Answer from "../common/answer";
 import Code from "../common/code";
+import CommonForm from "../common/commonForm";
 import { AnswerStyle } from "../common/style";
-import { InputBoxStyle, SubmitBtnStyle } from "./fifth";
 
 function SixthPage() {
     const [answer, setAnswer] = useState([]);
@@ -14,6 +14,10 @@ function SixthPage() {
         let vNum = Math.floor(total / num);
         let Array = [];
         Array.push(vNum);
+        if (num === 1) {
+            setAnswer(Array);
+            return;
+        }
         let cnt = 0;
         let result = 0;
         if (total % num === 0) {
@@ -25,11 +29,12 @@ function SixthPage() {
                 }, 0);
                 if (Array.length > num) {
                     alert("연속된 n개의 수로 total을 만들 수 없습니다.");
-                    break;
+                    return;
                 }
                 if (total === result) {
                     if (Array.length !== num) {
                         alert("연속된 n개의 수로 total을 만들 수 없습니다.");
+                        return;
                     }
                     break;
                 }
@@ -49,11 +54,12 @@ function SixthPage() {
                 }, 0);
                 if (Array.length > num) {
                     alert("연속된 n개의 수로 total을 만들 수 없습니다.");
-                    break;
+                    return;
                 }
                 if (total === result) {
                     if (Array.length !== num) {
                         alert("연속된 n개의 수로 total을 만들 수 없습니다.");
+                        return;
                     }
                     break;
                 }
@@ -65,24 +71,11 @@ function SixthPage() {
 
     return (
         <AnswerStyle>
-            <form
+            <CommonForm
+                type="totalNumber"
                 onSubmit={onTotalNumSubmit}
-                style={{
-                    margin: "0 auto",
-                    width: "45%",
-                    fontSize: "1.3rem",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                }}>
-                <InputBoxStyle>
-                    <label>num : </label>
-                    <input type={"number"} required />
-                    <label>total : </label>
-                    <input type={"number"} required />
-                </InputBoxStyle>
-                <SubmitBtnStyle type={"submit"}>계산</SubmitBtnStyle>
-            </form>
+                formWidth={45}
+            />
             <Answer>
                 Answer : [
                 {answer.map((item, index) => (
@@ -101,6 +94,10 @@ function SixthPage() {
                     let vNum = Math.floor(total / num);
                     let Array = [];
                     Array.push(vNum);
+                    if (num === 1) {
+                        setAnswer(Array);
+                        return;
+                    }
                     let cnt = 0;
                     let result = 0;
                     if (total % num === 0) {
@@ -112,11 +109,12 @@ function SixthPage() {
                             }, 0);
                             if (Array.length > num) {
                                 alert("연속된 n개의 수로 total을 만들 수 없습니다.");
-                                break;
+                                return;
                             }
                             if (total === result) {
                                 if (Array.length !== num) {
                                     alert("연속된 n개의 수로 total을 만들 수 없습니다.");
+                                    return;
                                 }
                                 break;
                             }
@@ -136,18 +134,20 @@ function SixthPage() {
                             }, 0);
                             if (Array.length > num) {
                                 alert("연속된 n개의 수로 total을 만들 수 없습니다.");
-                                break;
+                                return;
                             }
                             if (total === result) {
                                 if (Array.length !== num) {
                                     alert("연속된 n개의 수로 total을 만들 수 없습니다.");
+                                    return;
                                 }
                                 break;
                             }
                             cnt = cnt + 1;
                         }
                     }
-                    setAnswer(Array);`}
+                    setAnswer(Array);
+                    `}
                 </pre>
             </Code>
         </AnswerStyle>

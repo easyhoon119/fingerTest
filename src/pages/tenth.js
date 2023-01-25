@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Answer from "../common/answer";
 import Code from "../common/code";
-import { AnswerStyle, CommonInputStyle } from "../common/style";
+import CommonForm from "../common/commonForm";
+import { AnswerStyle } from "../common/style";
 
 function TenthPage() {
     const [value, setValue] = useState("");
@@ -38,15 +39,13 @@ function TenthPage() {
 
     return (
         <AnswerStyle>
-            <form
+            <CommonForm
+                type="text"
+                value={value}
+                onChange={onEngCheck}
                 onSubmit={onStringSubmit}
-                style={{ margin: "0 auto", width: "40%" }}>
-                <CommonInputStyle
-                    value={value}
-                    onChange={onEngCheck}
-                    type={"text"}
-                />
-            </form>
+                formWidth={40}
+            />
             <Answer>
                 {answer.map((item, index) => (
                     <p key={item + index}>{item}</p>

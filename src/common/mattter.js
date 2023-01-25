@@ -16,6 +16,7 @@ const MatterStyle = styled.div`
     width: 80%;
     text-align: center;
     margin: 0 auto;
+    margin-top: 1rem;
     font-size: 1.7rem;
     font-weight: 500;
     line-height: 2.5rem;

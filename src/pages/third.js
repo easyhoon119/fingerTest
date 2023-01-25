@@ -54,7 +54,12 @@ function ThirdPage() {
                     ))}
             </Answer>
             <Code>
-                {`dummy.filter((value) => new Date(value.startDate) <= date && new Date(value.endDate) >= date)`}
+                <pre>
+                    {`
+                const date = new Date();
+                dummy.filter((value) => new Date(value.startDate) <= date && new Date(value.endDate) >= date)
+                `}
+                </pre>
             </Code>
         </AnswerStyle>
     );

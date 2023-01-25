@@ -28,12 +28,17 @@ function Header() {
 
 const HeaderStyle = styled.div`
     width: 100%;
-    height: 200px;
+    height: 150px;
     display: flex;
     padding: 0 2rem;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0.5rem 0.5rem -0.5rem gray;
+    background-color: lightyellow;
 `;
 
 export default Header;

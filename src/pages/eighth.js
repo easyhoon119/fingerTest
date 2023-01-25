@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Answer from "../common/answer";
 import Code from "../common/code";
+import CommonForm from "../common/commonForm";
 import { AnswerStyle } from "../common/style";
-import { InputBoxStyle, SubmitBtnStyle } from "./fifth";
 
 function EighthPage() {
     const [answer, setAnswer] = useState([]);
@@ -24,33 +24,22 @@ function EighthPage() {
 
     return (
         <AnswerStyle>
-            <form
+            <CommonForm
+                type="totalNumber"
+                formWidth={45}
                 onSubmit={onNatureNumSubmit}
-                style={{
-                    margin: "0 auto",
-                    width: "45%",
-                    fontSize: "1.3rem",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                }}>
-                <InputBoxStyle>
-                    <label>num1 : </label>
-                    <input type={"number"} required />
-                    <label>num2 : </label>
-                    <input type={"number"} required />
-                </InputBoxStyle>
-                <SubmitBtnStyle type={"submit"}>계산</SubmitBtnStyle>
-                <Answer>
-                    {answer.map((item, index) => (
-                        <p key={item.name}>
-                            {item.name} : {item.value}
-                        </p>
-                    ))}
-                </Answer>
-                <Code>
-                    <pre>
-                        {`
+            />
+
+            <Answer>
+                {answer.map((item, index) => (
+                    <p key={item.name}>
+                        {item.name} : {item.value}
+                    </p>
+                ))}
+            </Answer>
+            <Code>
+                <pre>
+                    {`
                             let num1 = Number(e.target[0].value);
                             let num2 = Number(e.target[1].value);
                             let Array = [];
@@ -62,9 +51,8 @@ function EighthPage() {
                             Array.push({ name: "곱", value: num1 * num2 });
                             Array.push({ name: "나머지", value: num1 % num2 });
                             setAnswer(Array);`}
-                    </pre>
-                </Code>
-            </form>
+                </pre>
+            </Code>
         </AnswerStyle>
     );
 }

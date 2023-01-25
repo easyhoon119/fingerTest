@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Answer from "../common/answer";
 import Code from "../common/code";
-import { AnswerStyle, CommonInputStyle } from "../common/style";
+import CommonForm from "../common/commonForm";
+import { AnswerStyle } from "../common/style";
 
 function FirstPage() {
     const [value, setValue] = useState("");
@@ -23,15 +24,13 @@ function FirstPage() {
 
     return (
         <AnswerStyle>
-            <form
+            <CommonForm
+                type={"text"}
+                formWidth={40}
                 onSubmit={onSubmitTestCase}
-                style={{ margin: "0 auto", width: "40%" }}>
-                <CommonInputStyle
-                    value={value}
-                    onChange={onEngCheck}
-                    type={"text"}
-                />
-            </form>
+                onChange={onEngCheck}
+                value={value}
+            />
 
             <Answer>Answer : {answer}</Answer>
             <Code>value.toUpperCase().split("").sort()</Code>

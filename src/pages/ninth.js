@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Answer from "../common/answer";
 import Code from "../common/code";
-import { AnswerStyle, CommonInputStyle } from "../common/style";
+import CommonForm from "../common/commonForm";
+import { AnswerStyle } from "../common/style";
 
 function NinthPage() {
     const [answer, setAnswer] = useState([]);
@@ -25,11 +26,11 @@ function NinthPage() {
 
     return (
         <AnswerStyle>
-            <form
+            <CommonForm
+                type="oneNumber"
+                formWidth={40}
                 onSubmit={onNineNumberSubmit}
-                style={{ margin: "0 auto", width: "40%" }}>
-                <CommonInputStyle type={"number"} />
-            </form>
+            />
             <Answer>
                 {answer.map((item) => (
                     <p key={item.name}>{`${item.name} = ${item.value}`}</p>
