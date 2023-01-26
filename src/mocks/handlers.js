@@ -8,7 +8,7 @@ export const handler = [
         return res(ctx.status(200), ctx.json(quest));
     }),
     rest.get("quest/:id", async (req, res, ctx) => {
-        await sleep(200);
+        await sleep(1000);
 
         return res(ctx.status(200), ctx.json(quest[req.params.id]));
     }),

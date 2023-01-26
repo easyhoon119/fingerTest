@@ -1,8 +1,22 @@
+import { Spin } from "antd";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import useApi from "./hooks/useApi";
 import { getMatter } from "./modules/getApi";
 import { postMatter } from "./modules/postApi";
+
+const loadingStyle = {
+    position: "absolute",
+    top: "0",
+    left: "0",
+    width: "100%",
+    height: "100vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+    backgroundColor: "rgba(0,0,0,0.5)",
+};
 
 function Matter() {
     const { nowPage } = useSelector((state) => state.nowPageReducer);
@@ -25,9 +39,11 @@ function Matter() {
 
     return (
         <MatterStyle>
-            {!matterLoading && matter
-                ? `${matter.number}. ${matter.quest}`
-                : "...로딩중..."}
+            {!matterLoading && matter ? (
+                `${matter.number}. ${matter.quest}`
+            ) : (
+                <Spin style={loadingStyle} tip="loading" size="large" />
+            )}
         </MatterStyle>
     );
 }
