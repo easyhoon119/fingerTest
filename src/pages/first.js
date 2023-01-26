@@ -25,7 +25,7 @@ function FirstPage() {
     return (
         <AnswerStyle>
             <CommonForm
-                type={"text"}
+                type="text"
                 formWidth={40}
                 onSubmit={onSubmitTestCase}
                 onChange={onEngCheck}
